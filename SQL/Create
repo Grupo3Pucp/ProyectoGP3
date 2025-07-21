@@ -1,0 +1,201 @@
+-- Activar configuración ANSI
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- ========================================
+-- ESQUEMA: G3
+-- DESCRIPCIÓN: Base de datos para el análisis de indicadores de postventa de la marca SKODA
+-- ========================================
+
+-- TABLA: Cargo
+-- Contiene los cargos del personal
+CREATE TABLE [G3].[Cargo] (
+	[ID_Cargo]     VARCHAR(50) NOT NULL,
+	[Area]         VARCHAR(20) NOT NULL,
+	PRIMARY KEY CLUSTERED ([ID_Cargo] ASC)
+);
+GO
+
+-- TABLA: Clientes
+-- Información de clientes que accedieron a servicios postventa
+CREATE TABLE [G3].[Clientes] (
+	[ID_Cliente]     VARCHAR(10) NOT NULL,
+	[Nombre]         VARCHAR(50) NOT NULL,
+	[Apellido]       VARCHAR(50) NOT NULL,
+	[DNI]            VARCHAR(10) NOT NULL,
+	[Telefono]       VARCHAR(9) NOT NULL,
+	[Email]          VARCHAR(100) NOT NULL,
+	[Direccion]      VARCHAR(100) NOT NULL,
+	[Fecha_Registro] DATE NOT NULL,
+	[ID_Distrito]    VARCHAR(20),
+	PRIMARY KEY CLUSTERED ([ID_Cliente] ASC)
+);
+GO
+
+-- TABLA: Distrito
+-- Ubicación de clientes y talleres
+CREATE TABLE [G3].[Distrito] (
+	[ID_Distrito] VARCHAR(20) NOT NULL,
+	[Zona]        VARCHAR(20) NOT NULL,
+	[Distrito]    VARCHAR(100) NOT NULL,
+	[Ubigeo]      VARCHAR(20) NOT NULL,
+	PRIMARY KEY CLUSTERED ([ID_Distrito] ASC)
+);
+GO
+
+-- TABLA: Empleados
+-- Información del personal de los talleres
+CREATE TABLE [G3].[Empleados] (
+	[ID_Empleado]   VARCHAR(10) NOT NULL,
+	[Nombre]        VARCHAR(50) NOT NULL,
+	[Apellido]      VARCHAR(50) NOT NULL,
+	[DNI]           VARCHAR(10) NOT NULL,
+	[Telefono]      VARCHAR(9) NOT NULL,
+	[Email]         VARCHAR(100) NOT NULL,
+	[ID_Cargo]      VARCHAR(50) NOT NULL,
+	[Fecha_Ingreso] DATE NOT NULL,
+	[ID_Taller]     VARCHAR(10) NOT NULL,
+	PRIMARY KEY CLUSTERED ([ID_Empleado] ASC)
+);
+GO
+
+-- TABLA: ListadeServicios
+-- Detalle de los servicios disponibles
+CREATE TABLE [G3].[ListadeServicios] (
+	[ID_Listaserv] VARCHAR(3) NOT NULL,
+	[Servicio]     VARCHAR(100) NOT NULL,
+	[ID_Tiposerv]  VARCHAR(5) NOT NULL,
+	[Precio]       INT NOT NULL,
+	PRIMARY KEY CLUSTERED ([ID_Listaserv] ASC)
+);
+GO
+
+-- TABLA: OrdenesdeTrabajo
+-- Registra el ingreso de vehículos para servicios
+CREATE TABLE [G3].[OrdenesdeTrabajo] (
+	[ID_Orden]        VARCHAR(10) NOT NULL,
+	[Fecha_Recepcion] DATETIME NOT NULL,
+	[ID_Cliente]      VARCHAR(10) NOT NULL,
+	[ID_Empleado]     VARCHAR(10) NOT NULL,
+	[ID_Placa]        VARCHAR(10) NOT NULL,
+	[ID_Taller]       VARCHAR(10) NOT NULL,
+	[ID_Tipo]         VARCHAR(10) NOT NULL,
+	PRIMARY KEY CLUSTERED ([ID_Orden] ASC)
+);
+GO
+
+-- TABLA: Segmentos
+-- Segmentación de vehículos por antigüedad
+CREATE TABLE [G3].[Segmentos] (
+	[ID_Segmento] VARCHAR(10) NOT NULL,
+	[Antiguedad]  VARCHAR(20),
+	PRIMARY KEY CLUSTERED ([ID_Segmento] ASC)
+);
+GO
+
+-- TABLA: ServiciosporOrden
+-- Detalle de servicios realizados por orden
+CREATE TABLE [G3].[ServiciosporOrden] (
+	[ID_Serv]      VARCHAR(20) NOT NULL,
+	[ID_Orden]     VARCHAR(10) NOT NULL,
+	[ID_ListaServ] VARCHAR(3) NOT NULL,
+	PRIMARY KEY CLUSTERED ([ID_Serv] ASC)
+);
+GO
+
+-- TABLA: Talleres
+-- Información de los talleres
+CREATE TABLE [G3].[Talleres] (
+	[ID_Taller] VARCHAR(10) NOT NULL,
+	[Telefono]  VARCHAR(10),
+	[Ubicacion] VARCHAR(20),
+	PRIMARY KEY CLUSTERED ([ID_Taller] ASC)
+);
+GO
+
+-- TABLA: TipoCanal
+-- Canales de ingreso de clientes
+CREATE TABLE [G3].[TipoCanal] (
+	[ID_Canal]    VARCHAR(10) NOT NULL,
+	[Canal_Venta] VARCHAR(20) NOT NULL,
+	PRIMARY KEY CLUSTERED ([ID_Canal] ASC)
+);
+GO
+
+-- TABLA: TipodeIngreso
+-- Formas de ingreso a los servicios
+CREATE TABLE [G3].[TipodeIngreso] (
+	[ID_Tipo]     VARCHAR(10) NOT NULL,
+	[Descripcion] VARCHAR(100) NOT NULL,
+	[ID_Canal]    VARCHAR(10) NOT NULL,
+	PRIMARY KEY CLUSTERED ([ID_Tipo] ASC)
+);
+GO
+
+-- TABLA: TipodeServicios
+-- Clasificación de servicios prestados
+CREATE TABLE [G3].[TipodeServicios] (
+	[ID_Tiposerv] VARCHAR(5) NOT NULL,
+	[Tipo]        VARCHAR(50),
+	PRIMARY KEY CLUSTERED ([ID_Tiposerv] ASC)
+);
+GO
+
+-- TABLA: Vehiculos
+-- Información de los vehículos que reciben servicios
+CREATE TABLE [G3].[Vehiculos] (
+	[ID_Placa]        VARCHAR(10) NOT NULL,
+	[ID_Cliente]      VARCHAR(10),
+	[Chasis]          VARCHAR(50),
+	[Modelo]          VARCHAR(50),
+	[Color]           VARCHAR(30),
+	[Año_Fabricacion] DATE,
+	[ID_Segmento]     VARCHAR(10),
+	[KM_Actual]       INT,
+	PRIMARY KEY CLUSTERED ([ID_Placa] ASC)
+);
+GO
+
+-- ========================================
+-- RELACIONES ENTRE TABLAS (FOREIGN KEYS)
+-- ========================================
+ALTER TABLE [G3].[Clientes]
+ADD FOREIGN KEY ([ID_Distrito]) REFERENCES [G3].[Distrito]([ID_Distrito]);
+GO
+
+ALTER TABLE [G3].[Empleados]
+ADD FOREIGN KEY ([ID_Cargo]) REFERENCES [G3].[Cargo]([ID_Cargo]),
+    FOREIGN KEY ([ID_Taller]) REFERENCES [G3].[Talleres]([ID_Taller]);
+GO
+
+ALTER TABLE [G3].[ListadeServicios]
+ADD FOREIGN KEY ([ID_Tiposerv]) REFERENCES [G3].[TipodeServicios]([ID_Tiposerv]);
+GO
+
+ALTER TABLE [G3].[OrdenesdeTrabajo]
+ADD FOREIGN KEY ([ID_Cliente]) REFERENCES [G3].[Clientes]([ID_Cliente]),
+    FOREIGN KEY ([ID_Empleado]) REFERENCES [G3].[Empleados]([ID_Empleado]),
+    FOREIGN KEY ([ID_Placa]) REFERENCES [G3].[Vehiculos]([ID_Placa]),
+    FOREIGN KEY ([ID_Taller]) REFERENCES [G3].[Talleres]([ID_Taller]),
+    FOREIGN KEY ([ID_Tipo]) REFERENCES [G3].[TipodeIngreso]([ID_Tipo]);
+GO
+
+ALTER TABLE [G3].[ServiciosporOrden]
+ADD FOREIGN KEY ([ID_ListaServ]) REFERENCES [G3].[ListadeServicios]([ID_Listaserv]),
+    FOREIGN KEY ([ID_Orden]) REFERENCES [G3].[OrdenesdeTrabajo]([ID_Orden]);
+GO
+
+ALTER TABLE [G3].[Talleres]
+ADD FOREIGN KEY ([Ubicacion]) REFERENCES [G3].[Distrito]([ID_Distrito]);
+GO
+
+ALTER TABLE [G3].[TipodeIngreso]
+ADD FOREIGN KEY ([ID_Canal]) REFERENCES [G3].[TipoCanal]([ID_Canal]);
+GO
+
+ALTER TABLE [G3].[Vehiculos]
+ADD FOREIGN KEY ([ID_Cliente]) REFERENCES [G3].[Clientes]([ID_Cliente]),
+    FOREIGN KEY ([ID_Segmento]) REFERENCES [G3].[Segmentos]([ID_Segmento]);
+GO
