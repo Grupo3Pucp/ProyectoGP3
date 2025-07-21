@@ -18,10 +18,9 @@ Es directamente proporcional a la **facturación mensual**, siendo el principal 
 
 ## 💡 Impacto Económico
 
-Para un promedio de **1,850 servicios mensuales**, un ticket promedio de **S/ 1280** genera un ingreso de **S/ 2,368,000** mensuales.
+Actualmente, se tiene **1,850 ordenes mensuales** con un ticket promedio de **S/ 1280** mensual, que generan un ingreso de **S/ 2,368,000** anuales.
 
-- Si el ticket promedio aumenta en **S/ 1** por servicio, la facturación mensual incrementa en **S/ 1,850**.
-- El objetivo para diciembre 2025 es alcanzar **S/ 1350** por unidad (semáforo verde).
+- El objetivo para diciembre 2025 es alcanzar un ticket promedio de **S/ 1350** (semáforo verde).
 - Al 31 de mayo 2025 el ticket promedio fue de **S/ 1280** (semáforo amarillo).
 - Se implementará una campaña de marketing e incentivos con un presupuesto de **S/ 10,000 mensuales**.
 
@@ -50,10 +49,10 @@ Para un promedio de **1,850 servicios mensuales**, un ticket promedio de **S/ 12
 
 - ¿Cuál es el **Taller** con mejor ticket promedio en mayo 2025?
 - ¿Quién es el **Asesor de Servicio** con el ticket más alto en 2025?
-- ¿Qué **Zona de Demanda** tiene el ticket promedio más bajo en 2025?
+- ¿Qué **Zona de Demanda** que tiene el ticket promedio más bajo en 2025?
 - ¿Cuál es el **Segmento de Antigüedad** con mejor ticket promedio?
 - ¿Cuál es el **Tipo de Servicio** más rentable?
-- ¿Top 5 de **Servicios** con mejor ticket promedio?
+- ¿Cuál es el **Servicio** con mejor ticket promedio?
 - ¿Cuál es el **Distrito** con mayor ticket promedio?
 - ¿Cuál es el **Canal de Venta** con mayor ticket promedio?
 - ¿Cuál es el **Tipo de Servicio de Terceros** con mayor ticket promedio?
