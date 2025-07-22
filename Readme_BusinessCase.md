@@ -47,16 +47,16 @@ Actualmente, se tiene **1,850 ordenes mensuales** con un ticket promedio de **S/
 
 ## 🧠 Preguntas Respondidas
 
-- ¿Cuál es el **Taller** con mejor ticket promedio en mayo 2025?
-- ¿Quién es el **Asesor de Servicio** con el ticket más alto en 2025?
-- ¿Qué **Zona de Demanda** que tiene el ticket promedio más bajo en 2025?
-- ¿Cuál es el **Segmento de Antigüedad** con mejor ticket promedio?
-- ¿Cuál es el **Tipo de Servicio** más rentable?
-- ¿Cuál es el **Servicio** con mejor ticket promedio?
-- ¿Cuál es el **Distrito** con mayor ticket promedio?
-- ¿Cuál es el **Canal de Venta** con mayor ticket promedio?
-- ¿Cuál es el **Tipo de Servicio de Terceros** con mayor ticket promedio?
-- ¿Cuál es el ticket promedio por **Mdelo** de vehículo?
+- ¿Cuál es es el **TALLER** con mayor valor **INDICADOR DEL TICKET PROMEDIO MENSUAL PARA LA MARCA SKODA**  para Mayo 2025?
+- ¿Quien es el **ASESOR DE SERVICIO** que tiene el mayor valor promedio del **INDICADOR DEL TICKET PROMEDIO MENSUAL PARA LA MARCA SKODA**  en el año 2025?
+- ¿Cuál es la **ZONA DE DEMANDA** con menor valor promedio del **INDICADOR DEL TICKET PROMEDIO MENSUAL PARA LA MARCA SKODA** en el año 2025?
+- ¿Cual es el segmento de **ANTIGUEDAD DE VEHICULOS** con el mayor valor promedio del **INDICADOR DEL TICKET PROMEDIO MENSUAL PARA LA MARCA SKODA** en el año 2025?
+- ¿Cuál es el **TIPO DE SERVICIO** con el mayor valor promedio del **INDICADOR DEL TICKET PROMEDIO MENSUAL PARA LA MARCA SKODA**  para el año 2025?
+- ¿Cuál es el **SERVICIO** con el mayor valor promedio mensual **INDICADOR DEL TICKET PROMEDIO MENSUAL PARA LA MARCA SKODA** en el año 2025, según listado de servicios?
+- ¿Cuál es el **DISTRITO** con mayor valor **INDICADOR DEL TICKET PROMEDIO MENSUAL PARA LA MARCA SKODA** para mayo 2025?
+- ¿Cuál es el mayor valor promedio del **INDICADOR DEL TICKET PROMEDIO MENSUAL** PARA LA MARCA SKODA por tipo de CANAL DE VENTA en el año 2025? 
+- ¿Cuál es el **TIPO DE SERVICIO DE TERCEROS** con mayor facturación del **INDICADOR DEL TICKET PROMEDIO MENSUAL PARA LA MARCA SKODA** en el año 2025?
+- ¿Cuál es el  mayor valor promedio del **INDICADOR DEL TICKET PROMEDIO MENSUAL PARA LA MARCA SKODA** por **MODELO** en el año 2025?
 
 ## 🛠️ Tecnologías Utilizadas
 
